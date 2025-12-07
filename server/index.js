@@ -22,7 +22,7 @@ const songRouter = require('./routes/songs-router')
 const authRouter = require('./routes/auth-router')
 app.use('/api', playlistRouter)
 app.use('/api', songRouter)
-app.use('/api', authRouter)
+app.use('/auth', authRouter)
 
 // INITIALIZE OUR DATABASE OBJECT
 const db = require('./db')
