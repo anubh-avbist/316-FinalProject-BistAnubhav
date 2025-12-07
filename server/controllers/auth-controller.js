@@ -156,9 +156,86 @@ registerUser = async (req, res) => {
     }
 }
 
+editAccount = async (req, res) => {
+    console.log("UPDATING USER IN BACKEND");
+    try {
+        const id = req.params.id;
+        const user = await User.findOne({ _id: id }, (err, user) => {
+            return user;
+        }).catch(err => console.log(err));
+        if (!user) {
+            return res
+                .status(400)
+                .json({
+                    success: false,
+                    errorMessage: "Account from ID not found!"
+                })
+        }
+
+        const { username, email, password, passwordVerify, avatar } = req.body;
+        if (!username || !email || !password || !passwordVerify || !avatar) {
+            return res
+                .status(400)
+                .json({ errorMessage: "Please enter all required fields." });
+        }
+        if (password.length < 8) {
+            return res
+                .status(400)
+                .json({
+                    errorMessage: "Please enter a password of at least 8 characters."
+                });
+        }
+        console.log("password long enough");
+        if (password !== passwordVerify) {
+            return res
+                .status(400)
+                .json({
+                    errorMessage: "Please enter the same password twice."
+                })
+        }
+
+        if(email != user.email){
+            const existingUser = await User.findOne({ email: email });
+            console.log("existingUser: " + existingUser);
+            if (existingUser) {
+                return res
+                    .status(400)
+                    .json({
+                        success: false,
+                        errorMessage: "An account with this email address already exists."
+                    })
+            }
+        }
+
+        const saltRounds = 10;
+        const salt = await bcrypt.genSalt(saltRounds);
+        const passwordHash = await bcrypt.hash(password, salt);       
+
+        user.username = username;
+        user.email = email;
+        user.passwordHash = passwordHash;
+        user.avatar = avatar;
+
+        await user.save();
+        console.log("user updated: " + user._id);
+        await res.status(200).json({
+            success: true,
+            user: {
+                username: user.username,
+                email: user.email              
+            }
+        })
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).send();
+    }
+}
+
 module.exports = {
     getLoggedIn,
     registerUser,
     loginUser,
-    logoutUser
+    logoutUser,
+    editAccount
 }
