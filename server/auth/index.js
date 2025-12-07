@@ -32,6 +32,7 @@ function authManager() {
 
     verifyUser = (req) => {
         try {
+            console.log("NO TOKEN?!?" + JSON.stringify(req.cookies));
             const token = req.cookies.token;
             if (!token) {
                 return null;

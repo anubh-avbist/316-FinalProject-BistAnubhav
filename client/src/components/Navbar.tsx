@@ -16,14 +16,17 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import HomeIcon from '@mui/icons-material/Home';
+import { useNavigate } from 'react-router-dom';
 
 const pages = ['Playlists', 'Song Catalog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Login', 'CreateAccount'];
+const altSettings = ['Edit Account', 'Logout'];
 
 export default function Navbar() {
 
     const {getLoggedIn} = useContext(AuthContext);
     console.log("HomeWrapper auth.loggedIn: " + getLoggedIn());
+    const navigate = useNavigate();
 
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -43,11 +46,15 @@ export default function Navbar() {
     setAnchorElUser(null);
     };
 
+    const handleHomeClick = () => {
+        navigate('/');
+    }
+
     return (
     <AppBar position="static">
         <Container maxWidth="xl">
         <Toolbar disableGutters sx = {{gap: '2vw'}}>
-            <HomeIcon sx={{ display: { xs: 'none', md: 'flex'}, mr: 1 }} />
+            <HomeIcon sx={{ '&:hover': { cursor: 'pointer' }, display: { xs: 'none', md: 'flex'}, mr: 1 }} onClick={handleHomeClick} />
             <Typography
             noWrap
             component="h6"
@@ -133,11 +140,14 @@ export default function Navbar() {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
             >
-                {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
-                </MenuItem>
-                ))}
+                {
+                settings.map((setting) => (
+
+                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                        <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
+                    </MenuItem>
+                    ))
+                }
             </Menu>
             </Box>
         </Toolbar>

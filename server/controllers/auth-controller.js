@@ -4,7 +4,10 @@ const bcrypt = require('bcryptjs')
 
 getLoggedIn = async (req, res) => {
     try {
-        let userId = auth.verifyUser(req);
+        console.log(req.cookies);
+        let userId = await auth.verifyUser(req);
+        console.log("LOGGING IN!!!");
+        console.log("userId: " + userId);
         if (!userId) {
             return res.status(200).json({
                 loggedIn: false,
@@ -68,7 +71,6 @@ loginUser = async (req, res) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            secure: true,
             sameSite: true
         }).status(200).json({
             success: true,

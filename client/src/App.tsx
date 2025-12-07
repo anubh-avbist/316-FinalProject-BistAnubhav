@@ -3,6 +3,7 @@ import { AuthContextProvider } from './auth/index.js';
 import { BrowserRouter, Route, Routes} from 'react-router-dom'
 import HomeWrapper from './components/HomeWrapper.js';
 import Navbar from './components/Navbar.js';
+import LoginScreen from './components/LoginScreen.js';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Navbar />
         <Routes>
             <Route path="/" element={<HomeWrapper />} />
+            <Route path="/login" element={<LoginScreen />} />
         </Routes>      
       </AuthContextProvider>
     </BrowserRouter>

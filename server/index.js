@@ -7,13 +7,14 @@
 */
 
 // THESE ARE NODE APIs WE WISH TO USE
+require('dotenv').config();
 const express = require('express')
 const cors = require('cors')
 
 // CREATE OUR SERVER
 const app = express()
 app.use(express.urlencoded({ extended: true }))
-app.use(cors())
+app.use(cors({ origin: 'http://localhost:5173', credentials: true })); // ADD THE CLIENT URL TO OUR CORS POLICY
 app.use(express.json())
 
 // SETUP OUR OWN ROUTERS AS MIDDLEWARE
