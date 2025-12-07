@@ -114,8 +114,6 @@ renamePlaylist = async (req, res) => {
 
 }  
 
-
-
 deletePlaylist = async (req, res) => {
 
     await Playlist.deleteOne({ _id: req.params.id }, (err, result) => {
@@ -130,159 +128,6 @@ deletePlaylist = async (req, res) => {
         return res.status(400).json({success: false, message: "Find_one error!"});
     });
 }  
-
-addSong = async (req, res) => {
-    await Playlist.findOne({ _id: req.params.id }, (err, list) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-
-        if(list == null){
-            return res.status(400).json({ success: false, message: "No list found!"})
-        }
-
-        list.songs.push({
-            title: "Untitled",
-            artist: "???",
-            year: 2000,
-            youTubeId: "dQw4w9WgXcQ"
-        })
-
-        list.save().then(()=>{
-            return res.status(200).json({success: true, playlist: list, message: "New song added"});
-
-        }).catch(err => {
-            console.log("ERROR: " + err);
-            return res.status(400).json({success: false, message: "Saving error!"});
-        });
-        
-    }).catch(err => {
-        console.log("ERROR: " + err);
-        return res.status(400).json({success: false, message: "Find_one error!"});
-    });
-}
-
-createSong = async (req, res) => {
-    const body = req.body;
-    const index = body.index;
-    const song = body.song;
-
-    await Playlist.findOne({ _id: req.params.id }, (err, list) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-
-        if(list == null){
-            return res.status(400).json({ success: false, message: "No list found!"})
-        }
-
-        list.songs.splice(index,0,song);
-
-        list.save().then(()=>{
-            return res.status(200).json({success: true, playlist: list, message: "New song created"});
-
-        }).catch(err => {
-            console.log("ERROR: " + err);
-            return res.status(400).json({success: false, message: "Saving error!"});
-        });
-        
-    }).catch(err => {
-        console.log("ERROR: " + err);
-        return res.status(400).json({success: false, message: "Find_one error!"});
-    });
-}
-
-
-moveSongs = async (req, res) => {
-    const body = req.body;
-    const index_to_move = body.index_to_move;
-    const destination_index = body.destination_index;
-    
-    await Playlist.findOne({ _id: req.params.id }, (err, list) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-
-        if(list == null){
-            return res.status(400).json({ success: false, message: "No list found!"})
-        }
-
-        let moving_song = list.songs.splice(index_to_move, 1)[0];
-        list.songs.splice(destination_index, 0, moving_song);
-        
-        list.save().then(()=>{
-            return res.status(200).json({success: true, playlist: list, message: "Songs moved!"});
-
-        }).catch(err => {
-            console.log("ERROR: " + err);
-            return res.status(400).json({success: false, message: "Saving error!"});
-        });
-        
-    }).catch(err => {
-        console.log("ERROR: " + err);
-        return res.status(400).json({success: false, message: "Find_one error!"});
-    });
-}
-
-
-deleteSong = async (req, res) => {
-    const deletion_index = req.params.index;
-    
-    await Playlist.findOne({ _id: req.params.id }, (err, list) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-
-        if(list == null){
-            return res.status(400).json({ success: false, message: "No list found!"})
-        }
-
-        let deletedSong = list.songs.splice(deletion_index, 1)[0];
-        
-        list.save().then(()=>{
-            return res.status(200).json({success: true, deletedSong: deletedSong, message: "Songs deleted!"});
-
-        }).catch(err => {
-            console.log("ERROR: " + err);
-            return res.status(400).json({success: false, message: "Saving error!"});
-        });
-        
-    }).catch(err => {
-        console.log("ERROR: " + err);
-        return res.status(400).json({success: false, message: "Find_one error!"});
-    });
-}
-
-
-changeSong = async (req, res) => {
-    const body = req.body;
-    const editIndex = body.song_index;
-    const updatedSong = body.updated_song;
-    
-    await Playlist.findOne({ _id: req.params.id }, (err, list) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-
-        if(list == null){
-            return res.status(400).json({ success: false, message: "No list found!"})
-        }
-
-        list.songs[editIndex] = updatedSong;
-        
-        list.save().then(()=>{
-            return res.status(200).json({success: true, updatedSong: updatedSong, message: "Song updated!"});
-
-        }).catch(err => {
-            console.log("ERROR: " + err);
-            return res.status(400).json({success: false, message: "Saving error!"});
-        });
-        
-    }).catch(err => {
-        console.log("ERROR: " + err);
-        return res.status(400).json({success: false, message: "Find_one error!"});
-    });
-}
 
 getLists = async (req, res) => {
     const body = req.body;
@@ -305,61 +150,6 @@ getLists = async (req, res) => {
     });
 }
 
-songEquals = (songA, songB) => {
-   
-    return (songA.title === songB.title) && (songA.year === songB.year) && (songA.youTubeId == songB.youTubeId) && (songA.artist === songB.artist);
-}
-
-getSongs = async (req, res) => {
-    const body = req.body;
-    const songTemplate = body.song;
-    
-    // Filter by all playlists
-    await Playlist.find({}, (err, lists) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-
-        let valid_songs = [];
-
-        if(lists.length == 0){
-            return res.status(400).json({ success: false, message: "No list found!"})
-        }
-
-        // Match each song within each list
-        lists.forEach(list => {
-            list.songs.forEach(song => {
-                let matched = true;
-
-                Object.keys(songTemplate).forEach(key =>{
-                    if(songTemplate[key] !== song[key]){
-                        matched = false;
-                    }
-                })
-
-                if(matched){
-                    // Remove duplicates
-                    let unique = true;
-                    valid_songs.forEach(addedSong => {
-                        if(songEquals(addedSong, song)){
-                            unique = false;
-                        }
-                    })
-                    if(unique){
-                        valid_songs.push(song);
-                    }
-                }
-            });
-        })
-        return res.status(200).json({success: true, message: "Sucessfully found " + valid_songs.length + " songs!", songs: valid_songs});
-        
-    }).catch(err => {
-        console.log("ERROR: " + err);
-        return res.status(400).json({success: false, message: "Find_one error!"});
-    });
-}
-
-
 module.exports = {
     createPlaylist,
     readAllPlaylists,
@@ -367,11 +157,5 @@ module.exports = {
     readPlaylistById,
     renamePlaylist,
     deletePlaylist,
-    addSong,
-    createSong,
-    moveSongs,
-    deleteSong,
-    changeSong,
-    getLists,
-    getSongs
+    getLists
 }
