@@ -92,9 +92,18 @@ updateSong = async (req, res) => {
     });
 }
 
-deleteSong = async (req, res ) => {
-    
-}
+deleteSong = async (req, res) => {
+
+    await Song.deleteOne({ _id: req.params.id }, (err, result) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+        return res.status(200).json({success: true, message: "Song successfully deleted.", result: JSON.stringify(result)});
+    }).catch(err => {
+        console.log("ERROR: " + err);
+        return res.status(400).json({success: false, message: "Find_one error!"});
+    });
+}  
 
 module.exports = {
     createSong,
