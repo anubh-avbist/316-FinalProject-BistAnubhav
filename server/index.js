@@ -19,8 +19,10 @@ app.use(express.json())
 // SETUP OUR OWN ROUTERS AS MIDDLEWARE
 const playlistRouter = require('./routes/playlists-router')
 const songRouter = require('./routes/songs-router')
+const authRouter = require('./routes/auth-router')
 app.use('/api', playlistRouter)
 app.use('/api', songRouter)
+app.use('/api', authRouter)
 
 // INITIALIZE OUR DATABASE OBJECT
 const db = require('./db')

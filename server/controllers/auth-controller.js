@@ -97,14 +97,12 @@ logoutUser = async (req, res) => {
 registerUser = async (req, res) => {
     console.log("REGISTERING USER IN BACKEND");
     try {
-        const { firstName, lastName, email, password, passwordVerify } = req.body;
-        console.log("create user: " + firstName + " " + lastName + " " + email + " " + password + " " + passwordVerify);
-        if (!firstName || !lastName || !email || !password || !passwordVerify) {
+        const { username, email, password, passwordVerify, avatar } = req.body;
+        if (!username || !email || !password || !passwordVerify || !avatar) {
             return res
                 .status(400)
                 .json({ errorMessage: "Please enter all required fields." });
         }
-        console.log("all fields provided");
         if (password.length < 8) {
             return res
                 .status(400)
@@ -136,24 +134,16 @@ registerUser = async (req, res) => {
         const salt = await bcrypt.genSalt(saltRounds);
         const passwordHash = await bcrypt.hash(password, salt);
         console.log("passwordHash: " + passwordHash);
+        const playlists = [];
 
-        const newUser = new User({firstName, lastName, email, passwordHash});
+        const newUser = new User({username, email, passwordHash, playlists, avatar});
         const savedUser = await newUser.save();
         console.log("new user saved: " + savedUser._id);
 
-        // LOGIN THE USER
-        const token = auth.signToken(savedUser._id);
-        console.log("token:" + token);
-
-        await res.cookie("token", token, {
-            httpOnly: true,
-            secure: true,
-            sameSite: "none"
-        }).status(200).json({
+        await res.status(200).json({
             success: true,
             user: {
-                firstName: savedUser.firstName,
-                lastName: savedUser.lastName,  
+                username: savedUser.username,
                 email: savedUser.email              
             }
         })

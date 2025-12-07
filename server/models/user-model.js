@@ -11,7 +11,7 @@ const userSchema = new Schema(
         username: { type: String, required: true },
         email: { type: String, required: true },
         passwordHash: { type: String, required: true },
-        playlists: [{type: ObjectId, ref: 'playlist'}],
+        playlists: [{type: mongoose.Schema.Types.ObjectId, ref: 'playlist'}],
         avatar: { type: String, required: true }
     },
     { timestamps: true },
