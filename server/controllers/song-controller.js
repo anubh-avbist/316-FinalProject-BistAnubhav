@@ -41,7 +41,25 @@ createSong = async (req, res) => {
 
 }
 
+getSongById = async (req, res) => {
+    await Song.findOne({ _id: req.params.id }, (err, song) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+        return res.status(200).json({ success: true, song: song })
+    }).catch(err => console.log(err))
+}
+
+getSongs = async (req, res ) => {}
+
+updateSong = async (req, res ) => {}
+
+deleteSong = async (req, res ) => {}
 
 module.exports = {
-    createSong
+    createSong,
+    getSongById,
+    getSongs,
+    updateSong,
+    deleteSong
 }
