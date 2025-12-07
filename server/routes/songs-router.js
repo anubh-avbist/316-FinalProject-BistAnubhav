@@ -10,5 +10,6 @@ const router = express.Router()
 
 router.post('/song', SongController.createSong)
 router.get('/song/:id', SongController.getSongById)
+router.get('/songs', SongController.getSongs)
 
 module.exports = router

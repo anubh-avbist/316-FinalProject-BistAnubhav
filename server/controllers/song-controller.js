@@ -50,7 +50,15 @@ getSongById = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
-getSongs = async (req, res ) => {}
+getSongs = async (req, res) => {
+    const query = req.body;
+    await Song.find(query, (err, songs) => {
+        if(err) {
+            return res.status(400).json({success: false, error: err});
+        }
+        return res.status(200).json({success: true, message: `Found ${songs.length} songs!`, songs: songs})
+    }).catch(err => console.log(err))
+}
 
 updateSong = async (req, res ) => {}
 
