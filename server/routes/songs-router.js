@@ -8,4 +8,6 @@ const express = require('express')
 const SongController = require('../controllers/song-controller')
 const router = express.Router()
 
+router.post('/song', SongController.createSong)
+
 module.exports = router
