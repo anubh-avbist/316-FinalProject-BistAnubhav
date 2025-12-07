@@ -1,0 +1,379 @@
+[
+    {
+        "name": "Old Bangers",
+        "songs": [
+            {
+                "title": "Yo Me Enamore",
+                "artist": "Amar Azul",
+                "year": 1997,
+                "youTubeId": "X48mxG8N6CM"
+            },
+            { 
+                "title": "Mayonaka no Door (Stay with Me)", 
+                "artist": "Miki Matsubara",
+                "year": 1979,
+                "youTubeId": "QNYT9wVwQ8A" 
+            },
+            { 
+                "title": "The Way You Make Me Feel", 
+                "artist": "Michael Jackson",
+                "year": 1987,
+                "youTubeId": "uzbnrfd9vLQ" 
+            },
+            { 
+                "title": "Fly Me To The Moon", 
+                "artist": "Frank Sinatra",
+                "year": 1954,
+                "youTubeId": "CFlMy48ui9s" 
+            },
+            { 
+                "title": "Sabor A Mi", 
+                "artist": "Álvaro Carrillo",
+                "year": 1959,
+                "youTubeId": "Gb1FrnjlXoo" 
+            },
+            { 
+                "title": "Future's So Bright, I Gotta Wear Shades", 
+                "artist": "Timbuk 3",
+                "year": 1986,
+                "youTubeId": "8qrriKcwvlY" 
+            },
+            { 
+                "title": "Build God, Then We'll Talk", 
+                "artist": "Panic! at The Disco",
+                "year": 2005,
+                "youTubeId": "TFSIm3Zeecg" 
+            },
+            { 
+                "title": "It’s the End of the World as We Know It (and I Feel Fine)", 
+                "artist": "R.E.M.",
+                "year": 1987,
+                "youTubeId": "Z0GFRcFm-aY" 
+            },
+            { 
+                "title": "Bye Bye Bye", 
+                "artist": "NSync",
+                "year": 2000,
+                "youTubeId": "Eo-KmOd3i7s" 
+            },
+            { 
+                "title": "Brain Damage", 
+                "artist": "Eminem",
+                "year": 1999,
+                "youTubeId": "ifi6mPWoXxY" 
+            },
+            { 
+                "title": "Ticket To The Moon", 
+                "artist": "Electric Light Orchestra",
+                "year": 1981,
+                "youTubeId": "IPFwNCIsXBc" 
+            },
+            { 
+                "title": "Symphony no. 5", 
+                "artist": "Shostakovich",
+                "year": 1937,
+                "youTubeId": "L__jruvYuCg" 
+            },
+            { 
+                "title": "numb", 
+                "artist": "Linkin Park",
+                "year": 2003,
+                "youTubeId": "8P0vKLHbtMg" 
+            },
+            { 
+                "title": "93 til infinity", 
+                "artist": "Souls of Mischief",
+                "year": 1993,
+                "youTubeId": "fXJc2NYwHjw" 
+            },
+            { 
+                "title": "Limon y Sal", 
+                "artist": "Julieta Venegas",
+                "year": 2006,
+                "youTubeId": "tIpzfs5tBJU" 
+            },
+            { 
+                "title": "El Muchacho de Los Ojos Tristes", 
+                "artist": "Jeanette",
+                "year": 1981,
+                "youTubeId": "lDt8-ijO9bc" 
+            },
+            { 
+                "title": "Dress Down", 
+                "artist": "Kaoru Akimoto",
+                "year": 1986,
+                "youTubeId": "c9hGXjaKH_g" 
+            },
+            { 
+                "title": "Fly Day Chinatown", 
+                "artist": "Yasuha",
+                "year": 1981,
+                "youTubeId": "4X7ZvpwBiKA" 
+            },
+            { 
+                "title": "Still D.R.E.", 
+                "artist": "Dr. Dre",
+                "year": 1999,
+                "youTubeId": "_CL6n0FJZpk" 
+            },
+            { 
+                "title": "Hypnotize", 
+                "artist": "Biggie",
+                "year": 1997,
+                "youTubeId": "wk4ftn4PArg" 
+            }
+
+        ]
+    },
+    {
+        "name": "My Favorite Songs",
+        "songs": [
+            {
+                "title": "Image",
+                "artist": "Magdalena Bay",
+                "year": 2024,
+                "youTubeId": "DfcWOPpmw14"
+            },
+            { 
+                "title": "modest", 
+                "artist": "Gupi",
+                "year": 2020,
+                "youTubeId": "cALoCbrb9ds" 
+            },
+            { 
+                "title": "Can't Stop My Heart", 
+                "artist": "Plastic Girl in Closet",
+                "year": 2024,
+                "youTubeId": "otANfXokjdc" 
+            },
+            { 
+                "title": "Spoiled Little Brat", 
+                "artist": "underscores",
+                "year": 2021,
+                "youTubeId": "GLNowszQmlw" 
+            },
+            { 
+                "title": "Dustcutter", 
+                "artist": "Quadeca",
+                "year": 2024,
+                "youTubeId": "QxU1G44iOpc" 
+            },
+            { 
+                "title": "Off Da Zoinkys", 
+                "artist": "JID",
+                "year": 2019,
+                "youTubeId": "AzlcFH27dTU" 
+            },
+            { 
+                "title": "Backwoods", 
+                "artist": "Kill Bill: The Rapper",
+                "year": 2015,
+                "youTubeId": "WGinY8pKAno" 
+            },
+            { 
+                "title": "NASTYWERKKKK!", 
+                "artist": "Femtanyl",
+                "year": 2025,
+                "youTubeId": "CFVAE23tekc" 
+            },
+            { 
+                "title": "Delete", 
+                "artist": "Ninajirachi",
+                "year": 2025,
+                "youTubeId": "6flyi8nz318" 
+            },
+            { 
+                "title": "AT A TIME LIKE THIS", 
+                "artist": "Quadeca",
+                "year": 2025,
+                "youTubeId": "y-lXSKRzvvU" 
+            },
+            { 
+                "title": "kickstand", 
+                "artist": "ericdoa",
+                "year": 2023,
+                "youTubeId": "5zSAZLVlIAk" 
+            },
+            { 
+                "title": "Wesley's Theory", 
+                "artist": "Kendrick Lamar",
+                "year": 2015,
+                "youTubeId": "l9fN-8NjrvI" 
+            },
+            { 
+                "title": "FRENDS>ENEMii", 
+                "artist": "SEBii",
+                "year": 2024,
+                "youTubeId": "ct7BXfpxKac" 
+            },
+            { 
+                "title": "mean girls", 
+                "artist": "Charlie XCX",
+                "year": 2024,
+                "youTubeId": "IKUQDMEBXN0" 
+            },
+            { 
+                "title": "PULL UP", 
+                "artist": "Internet Girl",
+                "year": 2025,
+                "youTubeId": "dF6cjpThOG8" 
+            },
+            { 
+                "title": "Corso", 
+                "artist": "Tyler, The Creator",
+                "year": 2021,
+                "youTubeId": "sL8v8SnbskA" 
+            },
+            { 
+                "title": "Saiko", 
+                "artist": "Yeule",
+                "year": 2025,
+                "youTubeId": "pSK_iyjhgz8" 
+            },
+            { 
+                "title": "Dreamflasher", 
+                "artist": "Jane Remover",
+                "year": 2025,
+                "youTubeId": "6ZWhNxslxzA" 
+            },
+            { 
+                "title": "Fuck My Computer", 
+                "artist": "Ninajirachi",
+                "year": 2025,
+                "youTubeId": "HWl1Tu9oZmY" 
+            },
+            { 
+                "title": "I Miss The Rage", 
+                "artist": "Mario Judah",
+                "year": 2021,
+                "youTubeId": "AC979eEzzUE" 
+            }
+        ]
+    },
+    {
+        "name": "Weird Songs",
+        "songs": [
+            {
+                "title": "mememe",
+                "artist": "100 gecs",
+                "year": 2021,
+                "youTubeId": "ycpTDqfv7cI"
+            },
+            { 
+                "title": "Albino Steve", 
+                "artist": "Rx Papi",
+                "year": 2022,
+                "youTubeId": "_ca2yXinOeU" 
+            },
+            { 
+                "title": "The Way You Make Me Feel", 
+                "artist": "Michael Jackson",
+                "year": 1987,
+                "youTubeId": "otANfXokjdc" 
+            },
+            { 
+                "title": "mos thoser", 
+                "artist": "food house",
+                "year": 2020,
+                "youTubeId": "NVgS7Kxd6cg" 
+            },
+            { 
+                "title": "preacher", 
+                "artist": "angelus",
+                "year": 2023,
+                "youTubeId": "j2-IqWyiApg" 
+            },
+            { 
+                "title": "sortilege", 
+                "artist": "osquinn",
+                "year": 2025,
+                "youTubeId": "_GWcr8sUgzg" 
+            },
+            { 
+                "title": "KATAMARI", 
+                "artist": "femtanyl",
+                "year": 2023,
+                "youTubeId": "YfXpNIQbdjo" 
+            },
+            { 
+                "title": "THUNDRRR", 
+                "artist": "Quadeca",
+                "year": 2025,
+                "youTubeId": "XGuHEHsxF5c" 
+            },
+            { 
+                "title": "Bih Yah", 
+                "artist": "Mario Judah",
+                "year": 2020,
+                "youTubeId": "E5DCW-7-hCQ" 
+            },
+            { 
+                "title": "kinko's field trip 2005", 
+                "artist": "underscores",
+                "year": 2021,
+                "youTubeId": "_DWolD6bing" 
+            },
+            { 
+                "title": "those moser", 
+                "artist": "food house",
+                "year": 2020,
+                "youTubeId": "a-rfX8inHto" 
+            },
+            { 
+                "title": "Heather", 
+                "artist": "Glaive",
+                "year": 2021,
+                "youTubeId": "AftIkL2-f04" 
+            },
+            { 
+                "title": "<3MELT", 
+                "artist": "SEBii",
+                "year": 2025,
+                "youTubeId": "tUtQNheZ3dA" 
+            },
+            { 
+                "title": "JRJRJR", 
+                "artist": "Jane Remover",
+                "year": 2025,
+                "youTubeId": "RiwEzF3DsGk" 
+            },
+            { 
+                "title": "Second Sleep", 
+                "artist": "Magdalena Bay",
+                "year": 2025,
+                "youTubeId": "JAe2faaZ3sY" 
+            },
+            { 
+                "title": "U DON'T KNOW ME LIKE THAT", 
+                "artist": "Quadeca",
+                "year": 2024,
+                "youTubeId": "GbzJsOW8ypA" 
+            },
+            { 
+                "title": "WHAT'S GOOD", 
+                "artist": "Tyler, The creator",
+                "year": 2019,
+                "youTubeId": "on7pfd91cKc" 
+            },
+            { 
+                "title": "Boss Baby", 
+                "artist": "Frost Children",
+                "year": 2025,
+                "youTubeId": "-fbChQ-EDhY" 
+            },
+            { 
+                "title": "Venus Fly Trap", 
+                "artist": "Brakence",
+                "year": 2022,
+                "youTubeId": "LmBGhKEVqTI" 
+            },
+            { 
+                "title": "mega man", 
+                "artist": "Peach Girls",
+                "year": 2024,
+                "youTubeId": "rdxak1nWrpQ" 
+            }
+
+        ]
+    }
+]

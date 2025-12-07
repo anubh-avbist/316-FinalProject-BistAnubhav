@@ -1,0 +1,618 @@
+{
+	"info": {
+		"_postman_id": "57ae9164-3cc9-46b1-af53-d7cd2ee271d5",
+		"name": "Playlister",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48917360",
+		"_collection_link": "https://anubhav-bist-874649.postman.co/workspace/Anubhav-Bist's-Workspace~a0a6d1b1-ea62-4d37-85ab-116eb000a011/collection/48917360-57ae9164-3cc9-46b1-af53-d7cd2ee271d5?action=share&source=collection_link&creator=48917360"
+	},
+	"item": [
+		{
+			"name": "Create Playlist",
+			"item": [
+				{
+					"name": "Create Spacey",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Spacey\",\r\n    \"songs\": [\r\n        {\r\n            \"title\": \"Across the Universe\",\r\n            \"artist\": \"The Beatles\",\r\n            \"year\": 1969,\r\n            \"youTubeId\": \"90M60PzmxEE\"\r\n        },\r\n        {\r\n            \"title\": \"Astronomy Domine\",\r\n            \"artist\": \"Pink Floyd\",\r\n            \"year\": 1967,\r\n            \"youTubeId\": \"8UbNbor3OqQ\"\r\n        },\r\n        {\r\n            \"title\": \"Black Hole Sun\",\r\n            \"artist\": \"Soundgarden\",\r\n            \"year\": 1994,\r\n            \"youTubeId\": \"3mbBbFH9fAg\"\r\n        },\r\n        {\r\n            \"title\": \"Brain Damage/Eclipse\",\r\n            \"artist\": \"Pink Floyd\",\r\n            \"year\": 1973,\r\n            \"youTubeId\": \"g1OOQP1-wOE\"\r\n        },\r\n        {\r\n            \"title\": \"Fly Me to the Moon\",\r\n            \"artist\": \"Frank Sinatra\",\r\n            \"year\": 1964,\r\n            \"youTubeId\": \"ZEcqHA7dbwM\"\r\n        },\r\n        {\r\n            \"title\": \"In the Meantime\",\r\n            \"artist\": \"Spacehog\",\r\n            \"year\": 1994,\r\n            \"youTubeId\": \"PCsGRCf8T9Y\"\r\n        },\r\n        {\r\n            \"title\": \"Major Tom\",\r\n            \"artist\": \"Peter Shilling\",\r\n            \"year\": 1982,\r\n            \"youTubeId\": \"wO0A0XcWy88\"\r\n        },\r\n        {\r\n            \"title\": \"Man on the Moon\",\r\n            \"artist\": \"REM\",\r\n            \"year\": 1992,\r\n            \"youTubeId\": \"dLxpNiF0YKs\"\r\n        },\r\n        {\r\n            \"title\": \"Rocket Man\",\r\n            \"artist\": \"Elton John\",\r\n            \"year\": 1972,\r\n            \"youTubeId\": \"DtVBCG6ThDk\"\r\n        },\r\n        {\r\n            \"title\": \"Set the Controls for the Heart of the Sun\",\r\n            \"artist\": \"Pink Floyd\",\r\n            \"year\": 1968,\r\n            \"youTubeId\": \"qupVCTn5Dko\"\r\n        },\r\n        {\r\n            \"title\": \"Space Oddity\",\r\n            \"artist\": \"David Bowie\",\r\n            \"year\": 1969,\r\n            \"youTubeId\": \"iYYRH4apXDo\"\r\n        },\r\n        {\r\n            \"title\": \"Space Song\",\r\n            \"artist\": \"Beach House\",\r\n            \"year\": 2015,\r\n            \"youTubeId\": \"RBtlPT23PTM\"\r\n        },\r\n        {\r\n            \"title\": \"Starless\",\r\n            \"artist\": \"King Crimson\",\r\n            \"year\": 1974,\r\n            \"youTubeId\": \"OfR6_V91fG8\"\r\n        },\r\n        {\r\n            \"title\": \"Starman\",\r\n            \"artist\": \"David Bowie\",\r\n            \"year\": 1972,\r\n            \"youTubeId\": \"t365MuktYQs\"\r\n        },\r\n        {\r\n            \"title\": \"Starship Trooper\",\r\n            \"artist\": \"Yes\",\r\n            \"year\": 1971,\r\n            \"youTubeId\": \"xk4U8BembHM\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/playlist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Any Colour You Like",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Any Colour You Like\",\r\n    \"songs\": [\r\n        {\r\n            \"title\": \"99 Red Balloons\",\r\n            \"artist\": \"Nena\",\r\n            \"year\": 1984,\r\n            \"youTubeId\": \"Fpu5a0Bl8eY\"\r\n        },\r\n        {\r\n            \"title\": \"Big Blue Sun\",\r\n            \"artist\": \"Adrian Belew\",\r\n            \"year\": 1986,\r\n            \"youTubeId\": \"DMkEmW2awQw\"\r\n        },\r\n        {\r\n            \"title\": \"Black Dog\",\r\n            \"artist\": \"Led Zeppelin\",\r\n            \"year\": 1971,\r\n            \"youTubeId\": \"2KPEHohJMuw\"\r\n        },\r\n        {\r\n            \"title\": \"Golden Brown\",\r\n            \"artist\": \"The Stranglers\",\r\n            \"year\": 1981,\r\n            \"youTubeId\": \"7KIHvuMl4Kk\"\r\n        },\r\n        {\r\n            \"title\": \"Goodbye Yellow Brick Road\",\r\n            \"artist\": \"Elton John\",\r\n            \"year\": 1973,\r\n            \"youTubeId\": \"wy709iNG6i8\"\r\n        },\r\n        {\r\n            \"title\": \"Green is the Colour\",\r\n            \"artist\": \"Pink Floyd\",\r\n            \"year\": 1969,\r\n            \"youTubeId\": \"4XeWngFZaa8\"\r\n        },\r\n        {\r\n            \"title\": \"In the Court of the Crimson King\",\r\n            \"artist\": \"King Crimson\",\r\n            \"year\": 1969,\r\n            \"youTubeId\": \"ukgraQ-xkp4\"\r\n        },\r\n        {\r\n            \"title\": \"Orange Crush\",\r\n            \"artist\": \"REM\",\r\n            \"year\": 1988,\r\n            \"youTubeId\": \"_mSmOcmk7uQ\"\r\n        },\r\n        {\r\n            \"title\": \"Pink Houses\",\r\n            \"artist\": \"John Mellancamp\",\r\n            \"year\": 1983,\r\n            \"youTubeId\": \"qOfkpu6749w\"\r\n        },\r\n        {\r\n            \"title\": \"Purple Rain\",\r\n            \"artist\": \"Prince\",\r\n            \"year\": 1984,\r\n            \"youTubeId\": \"TvnYmWpD_T8\"\r\n        },\r\n        {\r\n            \"title\": \"White Lines\",\r\n            \"artist\": \"Grandmaster Flash and the Furious Five\",\r\n            \"year\": 1983,\r\n            \"youTubeId\": \"DwRXI-y6M9o\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/playlist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Don't Be Rude",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Don't be Rude\",\r\n    \"songs\": [\r\n        {\r\n            \"title\": \"A Message to You Rudy\",\r\n            \"artist\": \"The Specials\",\r\n            \"year\": 1979,\r\n            \"youTubeId\": \"cntvEDbagAw\"\r\n        },\r\n        {\r\n            \"title\": \"Rudie Can't Fail\",\r\n            \"artist\": \"The Clash\",\r\n            \"year\": 1979,\r\n            \"youTubeId\": \"uEK9oK02D1M\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/playlist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Peak",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"My Favorite Songs\",\n    \"songs\": [\n        {\n            \"title\": \"Image\",\n            \"artist\": \"Magdalena Bay\",\n            \"year\": 2024,\n            \"youTubeId\": \"DfcWOPpmw14\"\n        },\n        { \n            \"title\": \"modest\", \n            \"artist\": \"Gupi\",\n            \"year\": 2020,\n            \"youTubeId\": \"cALoCbrb9ds\" \n        },\n        { \n            \"title\": \"Can't Stop My Heart\", \n            \"artist\": \"Plastic Girl in Closet\",\n            \"year\": 2024,\n            \"youTubeId\": \"otANfXokjdc\" \n        },\n        { \n            \"title\": \"Spoiled Little Brat\", \n            \"artist\": \"underscores\",\n            \"year\": 2021,\n            \"youTubeId\": \"GLNowszQmlw\" \n        },\n        { \n            \"title\": \"Dustcutter\", \n            \"artist\": \"Quadeca\",\n            \"year\": 2024,\n            \"youTubeId\": \"QxU1G44iOpc\" \n        },\n        { \n            \"title\": \"Off Da Zoinkys\", \n            \"artist\": \"JID\",\n            \"year\": 2019,\n            \"youTubeId\": \"AzlcFH27dTU\" \n        },\n        { \n            \"title\": \"Backwoods\", \n            \"artist\": \"Kill Bill: The Rapper\",\n            \"year\": 2015,\n            \"youTubeId\": \"WGinY8pKAno\" \n        },\n        { \n            \"title\": \"NASTYWERKKKK!\", \n            \"artist\": \"Femtanyl\",\n            \"year\": 2025,\n            \"youTubeId\": \"CFVAE23tekc\" \n        },\n        { \n            \"title\": \"Delete\", \n            \"artist\": \"Ninajirachi\",\n            \"year\": 2025,\n            \"youTubeId\": \"6flyi8nz318\" \n        },\n        { \n            \"title\": \"AT A TIME LIKE THIS\", \n            \"artist\": \"Quadeca\",\n            \"year\": 2025,\n            \"youTubeId\": \"y-lXSKRzvvU\" \n        },\n        { \n            \"title\": \"kickstand\", \n            \"artist\": \"ericdoa\",\n            \"year\": 2023,\n            \"youTubeId\": \"5zSAZLVlIAk\" \n        },\n        { \n            \"title\": \"Wesley's Theory\", \n            \"artist\": \"Kendrick Lamar\",\n            \"year\": 2015,\n            \"youTubeId\": \"l9fN-8NjrvI\" \n        },\n        { \n            \"title\": \"FRENDS>ENEMii\", \n            \"artist\": \"SEBii\",\n            \"year\": 2024,\n            \"youTubeId\": \"ct7BXfpxKac\" \n        },\n        { \n            \"title\": \"mean girls\", \n            \"artist\": \"Charlie XCX\",\n            \"year\": 2024,\n            \"youTubeId\": \"IKUQDMEBXN0\" \n        },\n        { \n            \"title\": \"PULL UP\", \n            \"artist\": \"Internet Girl\",\n            \"year\": 2025,\n            \"youTubeId\": \"dF6cjpThOG8\" \n        },\n        { \n            \"title\": \"Corso\", \n            \"artist\": \"Tyler, The Creator\",\n            \"year\": 2021,\n            \"youTubeId\": \"sL8v8SnbskA\" \n        },\n        { \n            \"title\": \"Saiko\", \n            \"artist\": \"Yeule\",\n            \"year\": 2025,\n            \"youTubeId\": \"pSK_iyjhgz8\" \n        },\n        { \n            \"title\": \"Dreamflasher\", \n            \"artist\": \"Jane Remover\",\n            \"year\": 2025,\n            \"youTubeId\": \"6ZWhNxslxzA\" \n        },\n        { \n            \"title\": \"Fuck My Computer\", \n            \"artist\": \"Ninajirachi\",\n            \"year\": 2025,\n            \"youTubeId\": \"HWl1Tu9oZmY\" \n        },\n        { \n            \"title\": \"I Miss The Rage\", \n            \"artist\": \"Mario Judah\",\n            \"year\": 2021,\n            \"youTubeId\": \"AC979eEzzUE\" \n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/playlist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Weird Songs",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\": \"Weird Songs\",\n        \"songs\": [\n            {\n                \"title\": \"mememe\",\n                \"artist\": \"100 gecs\",\n                \"year\": 2021,\n                \"youTubeId\": \"ycpTDqfv7cI\"\n            },\n            { \n                \"title\": \"Albino Steve\", \n                \"artist\": \"Rx Papi\",\n                \"year\": 2022,\n                \"youTubeId\": \"_ca2yXinOeU\" \n            },\n            { \n                \"title\": \"The Way You Make Me Feel\", \n                \"artist\": \"Michael Jackson\",\n                \"year\": 1987,\n                \"youTubeId\": \"otANfXokjdc\" \n            },\n            { \n                \"title\": \"mos thoser\", \n                \"artist\": \"food house\",\n                \"year\": 2020,\n                \"youTubeId\": \"NVgS7Kxd6cg\" \n            },\n            { \n                \"title\": \"preacher\", \n                \"artist\": \"angelus\",\n                \"year\": 2023,\n                \"youTubeId\": \"j2-IqWyiApg\" \n            },\n            { \n                \"title\": \"sortilege\", \n                \"artist\": \"osquinn\",\n                \"year\": 2025,\n                \"youTubeId\": \"_GWcr8sUgzg\" \n            },\n            { \n                \"title\": \"KATAMARI\", \n                \"artist\": \"femtanyl\",\n                \"year\": 2023,\n                \"youTubeId\": \"YfXpNIQbdjo\" \n            },\n            { \n                \"title\": \"THUNDRRR\", \n                \"artist\": \"Quadeca\",\n                \"year\": 2025,\n                \"youTubeId\": \"XGuHEHsxF5c\" \n            },\n            { \n                \"title\": \"Bih Yah\", \n                \"artist\": \"Mario Judah\",\n                \"year\": 2020,\n                \"youTubeId\": \"E5DCW-7-hCQ\" \n            },\n            { \n                \"title\": \"kinko's field trip 2005\", \n                \"artist\": \"underscores\",\n                \"year\": 2021,\n                \"youTubeId\": \"_DWolD6bing\" \n            },\n            { \n                \"title\": \"those moser\", \n                \"artist\": \"food house\",\n                \"year\": 2020,\n                \"youTubeId\": \"a-rfX8inHto\" \n            },\n            { \n                \"title\": \"Heather\", \n                \"artist\": \"Glaive\",\n                \"year\": 2021,\n                \"youTubeId\": \"AftIkL2-f04\" \n            },\n            { \n                \"title\": \"<3MELT\", \n                \"artist\": \"SEBii\",\n                \"year\": 2025,\n                \"youTubeId\": \"tUtQNheZ3dA\" \n            },\n            { \n                \"title\": \"JRJRJR\", \n                \"artist\": \"Jane Remover\",\n                \"year\": 2025,\n                \"youTubeId\": \"RiwEzF3DsGk\" \n            },\n            { \n                \"title\": \"Second Sleep\", \n                \"artist\": \"Magdalena Bay\",\n                \"year\": 2025,\n                \"youTubeId\": \"JAe2faaZ3sY\" \n            },\n            { \n                \"title\": \"U DON'T KNOW ME LIKE THAT\", \n                \"artist\": \"Quadeca\",\n                \"year\": 2024,\n                \"youTubeId\": \"GbzJsOW8ypA\" \n            },\n            { \n                \"title\": \"WHAT'S GOOD\", \n                \"artist\": \"Tyler, The creator\",\n                \"year\": 2019,\n                \"youTubeId\": \"on7pfd91cKc\" \n            },\n            { \n                \"title\": \"Boss Baby\", \n                \"artist\": \"Frost Children\",\n                \"year\": 2025,\n                \"youTubeId\": \"-fbChQ-EDhY\" \n            },\n            { \n                \"title\": \"Venus Fly Trap\", \n                \"artist\": \"Brakence\",\n                \"year\": 2022,\n                \"youTubeId\": \"LmBGhKEVqTI\" \n            },\n            { \n                \"title\": \"mega man\", \n                \"artist\": \"Peach Girls\",\n                \"year\": 2024,\n                \"youTubeId\": \"rdxak1nWrpQ\" \n            }\n\n        ]\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/playlist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Old Songs",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Old Bangers\",\n    \"songs\": [\n        {\n            \"title\": \"Yo Me Enamore\",\n            \"artist\": \"Amar Azul\",\n            \"year\": 1997,\n            \"youTubeId\": \"X48mxG8N6CM\"\n        },\n        { \n            \"title\": \"Mayonaka no Door (Stay with Me)\", \n            \"artist\": \"Miki Matsubara\",\n            \"year\": 1979,\n            \"youTubeId\": \"QNYT9wVwQ8A\" \n        },\n        { \n            \"title\": \"The Way You Make Me Feel\", \n            \"artist\": \"Michael Jackson\",\n            \"year\": 1987,\n            \"youTubeId\": \"uzbnrfd9vLQ\" \n        },\n        { \n            \"title\": \"Fly Me To The Moon\", \n            \"artist\": \"Frank Sinatra\",\n            \"year\": 1954,\n            \"youTubeId\": \"CFlMy48ui9s\" \n        },\n        { \n            \"title\": \"Sabor A Mi\", \n            \"artist\": \"Álvaro Carrillo\",\n            \"year\": 1959,\n            \"youTubeId\": \"Gb1FrnjlXoo\" \n        },\n        { \n            \"title\": \"Future's So Bright, I Gotta Wear Shades\", \n            \"artist\": \"Timbuk 3\",\n            \"year\": 1986,\n            \"youTubeId\": \"8qrriKcwvlY\" \n        },\n        { \n            \"title\": \"Build God, Then We'll Talk\", \n            \"artist\": \"Panic! at The Disco\",\n            \"year\": 2005,\n            \"youTubeId\": \"TFSIm3Zeecg\" \n        },\n        { \n            \"title\": \"It’s the End of the World as We Know It (and I Feel Fine)\", \n            \"artist\": \"R.E.M.\",\n            \"year\": 1987,\n            \"youTubeId\": \"Z0GFRcFm-aY\" \n        },\n        { \n            \"title\": \"Bye Bye Bye\", \n            \"artist\": \"NSync\",\n            \"year\": 2000,\n            \"youTubeId\": \"Eo-KmOd3i7s\" \n        },\n        { \n            \"title\": \"Brain Damage\", \n            \"artist\": \"Eminem\",\n            \"year\": 1999,\n            \"youTubeId\": \"ifi6mPWoXxY\" \n        },\n        { \n            \"title\": \"Ticket To The Moon\", \n            \"artist\": \"Electric Light Orchestra\",\n            \"year\": 1981,\n            \"youTubeId\": \"IPFwNCIsXBc\" \n        },\n        { \n            \"title\": \"Symphony no. 5\", \n            \"artist\": \"Shostakovich\",\n            \"year\": 1937,\n            \"youTubeId\": \"L__jruvYuCg\" \n        },\n        { \n            \"title\": \"numb\", \n            \"artist\": \"Linkin Park\",\n            \"year\": 2003,\n            \"youTubeId\": \"8P0vKLHbtMg\" \n        },\n        { \n            \"title\": \"93 til infinity\", \n            \"artist\": \"Souls of Mischief\",\n            \"year\": 1993,\n            \"youTubeId\": \"fXJc2NYwHjw\" \n        },\n        { \n            \"title\": \"Limon y Sal\", \n            \"artist\": \"Julieta Venegas\",\n            \"year\": 2006,\n            \"youTubeId\": \"tIpzfs5tBJU\" \n        },\n        { \n            \"title\": \"El Muchacho de Los Ojos Tristes\", \n            \"artist\": \"Jeanette\",\n            \"year\": 1981,\n            \"youTubeId\": \"lDt8-ijO9bc\" \n        },\n        { \n            \"title\": \"Dress Down\", \n            \"artist\": \"Kaoru Akimoto\",\n            \"year\": 1986,\n            \"youTubeId\": \"c9hGXjaKH_g\" \n        },\n        { \n            \"title\": \"Fly Day Chinatown\", \n            \"artist\": \"Yasuha\",\n            \"year\": 1981,\n            \"youTubeId\": \"4X7ZvpwBiKA\" \n        },\n        { \n            \"title\": \"Still D.R.E.\", \n            \"artist\": \"Dr. Dre\",\n            \"year\": 1999,\n            \"youTubeId\": \"_CL6n0FJZpk\" \n        },\n        { \n            \"title\": \"Hypnotize\", \n            \"artist\": \"Biggie\",\n            \"year\": 1997,\n            \"youTubeId\": \"wk4ftn4PArg\" \n        }\n\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/playlist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Read Playlist",
+			"item": [
+				{
+					"name": "Read Spacey (_id will be different each time it is created)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/playlist/68e1a103344930fac5258eec",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist",
+								"68e1a103344930fac5258eec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Spacey (_id will be different each time it is created) Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/playlist/68e1a103344930fac5258eec",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist",
+								"68e1a103344930fac5258eec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Any Colour You Like (_id will be different each time it is created) Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/playlist/68e1a103344930fac5258eed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist",
+								"68e1a103344930fac5258eed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read My Favorite Songs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/playlist/68e92e5ae0c6177fe2f1fd01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist",
+								"68e92e5ae0c6177fe2f1fd01"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Weird Songs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/playlist/68eaa916b51f3050f3be976c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist",
+								"68eaa916b51f3050f3be976c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Old Songs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/playlist/68ea79346415df06868c115e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist",
+								"68ea79346415df06868c115e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Update Playlist",
+			"item": [
+				{
+					"name": "Rename Playlist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"newName\": \"D Spacey\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/update/rename_list/68eaa8ffb51f3050f3be9734",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"update",
+								"rename_list",
+								"68eaa8ffb51f3050f3be9734"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Song",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/update/new_song/68eaa916b51f3050f3be976c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"update",
+								"new_song",
+								"68eaa916b51f3050f3be976c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Song",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"index\": 2,\n    \"song\": {\n        \"title\": \"Image\",\n        \"artist\": \"Magdalena Bay\",\n        \"year\": 2024,\n        \"youTubeId\": \"DfcWOPpmw14\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/update/create_song/68ec2154c3e8d6070f58d9df",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"update",
+								"create_song",
+								"68ec2154c3e8d6070f58d9df"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Move Song",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"index_to_move\": 4,\n    \"destination_index\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/update/move_song/68eaa916b51f3050f3be976c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"update",
+								"move_song",
+								"68eaa916b51f3050f3be976c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Song",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"song_index\": 2,\n    \"updated_song\": {\n        \"title\": \"Never Gonna Give You Up\",\n        \"artist\": \"Rick Astley\",\n        \"year\": 1999,\n        \"youTubeId\": \"dQw4w9WgXcQ\"\n    }\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/update/change_song/68eaa8ffb51f3050f3be9734",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"update",
+								"change_song",
+								"68eaa8ffb51f3050f3be9734"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Song",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/update/delete_song/68ec257722ced4228f02141d/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"update",
+								"delete_song",
+								"68ec257722ced4228f02141d",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delete Playlist",
+			"item": [
+				{
+					"name": "Delete Playlist",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/update/delete_list/68eaa911b51f3050f3be9756",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"update",
+								"delete_list",
+								"68eaa911b51f3050f3be9756"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Read Playlist Pairs",
+			"item": [
+				{
+					"name": "Read Playlist Pairs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/playlistpairs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlistpairs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Query Playlists",
+			"item": [
+				{
+					"name": "Get Lists",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"start_string\" : \"D\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/query/get_lists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"query",
+								"get_lists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Songs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"song\": {\n        \"title\": \"Untitled\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/query/get_songs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"query",
+								"get_songs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
