@@ -60,9 +60,41 @@ getSongs = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
-updateSong = async (req, res ) => {}
+updateSong = async (req, res) => { 
+    const id = req.params.id;
+    const song = await Song.findOne({ _id: id }, (err, song) => {
+                    return song;
+                }).catch(err => console.log(err))
 
-deleteSong = async (req, res ) => {}
+    if(!song){
+        console.log("NO SONG");
+        return res.status(404).json({success: false, message: "Song not found!"});
+    } 
+    
+    const { title, artist, year, ytID } = req.body;
+    if(title){
+        song.title = title;
+    }
+    if(artist){
+        song.artist = artist;
+    }
+    if(year){
+        song.year = year;
+    }
+    if(ytID){
+        song.ytID = ytID;
+    }
+    song.save().then(() => {
+        return res.status(200).json({success: false, message: "Song updated!", song: song});
+    }).catch(err => {
+        console.log("ERROR: " + err);
+        return res.status(400).json({success: false, message: "Saving error!"});
+    });
+}
+
+deleteSong = async (req, res ) => {
+    
+}
 
 module.exports = {
     createSong,
