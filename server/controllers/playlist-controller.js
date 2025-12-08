@@ -238,6 +238,28 @@ moveSongInPlaylist = async (req, res) => {
     });
 }
 
+duplicateSongInPlaylist = async (req, res) => {
+    const { index, playlistId } = req.body;
+    const playlist = await Playlist.findOne({ _id: playlistId }, (err, playlist) => {
+        return playlist;
+    }).catch(err => console.log(err));
+
+    if(!playlist){
+        return res.status(404).json({success: false, message: "Playlist not found!"});
+    }
+
+    const songToDuplicate = playlist.songs[index];
+    // puts it right after the original!!
+    playlist.songs.splice(index, 0, songToDuplicate);
+
+    playlist.save().then(() => {
+        return res.status(200).json({success: true, message: "Song duplicated in playlist!", playlist: playlist});
+    }).catch(err => {
+        console.log("ERROR: " + err);
+        return res.status(400).json({success: false, message: "Saving error!"});
+    });
+}
+
 module.exports = {
     createPlaylist,
     readAllPlaylists,
@@ -246,5 +268,6 @@ module.exports = {
     deletePlaylist,
     getLists,
     removeSongFromPlaylist,
-    moveSongInPlaylist
+    moveSongInPlaylist,
+    duplicateSongInPlaylist
 }
