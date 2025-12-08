@@ -1,4 +1,6 @@
 const Playlist = require('../models/playlist-model')
+const User = require('../models/user-model')
+
 /*
     This is our back-end API. It provides all the data services
     our database needs. Note that this file contains the controller
@@ -22,6 +24,32 @@ createPlaylist = (req, res) => {
     if (!playlist) {
         return res.status(400).json({ success: false, error: err })
     }
+
+    const email = playlist.ownerEmail;
+    const user = User.findOne({ email: email }, (err, user) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+
+        if (!user) {
+            return res.status(400).json({ success: false, error: "User not found!" })
+        }
+
+        user.playlists.push(playlist._id);
+        user
+            .save()
+            .then(() => {
+                console.log("Added playlist to user's list of playlists");
+            })
+            .catch(error => {
+                return res.status(400).json({
+                    error,
+                    message: 'Playlist Not Added to User!',
+                })
+            })
+    });
+
+
 
     playlist
         .save()
@@ -61,27 +89,7 @@ readAllPlaylists = async (req, res) => {
         return res.status(200).json({ success: true, data: playlists })
     }).catch(err => console.log(err))
 }
-readPlaylistPairs = async (req, res) => {
-    await Playlist.find({}, (err, playlists) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-        
-        // Removed error if no playlists are found... maybe all playlists are just deleted!
 
-        // PUT ALL THE LISTS INTO ID, NAME PAIRS
-        let pairs = [];
-        for (let key in playlists) {
-            let list = playlists[key];
-            let pair = {
-                _id: list._id,
-                name: list.name
-            };
-            pairs.push(pair);
-        }
-        return res.status(200).json({ success: true, idNamePairs: pairs })
-    }).catch(err => console.log(err))
-}
 
 // Things I Made:
 renamePlaylist = async (req, res) => {
@@ -153,7 +161,6 @@ getLists = async (req, res) => {
 module.exports = {
     createPlaylist,
     readAllPlaylists,
-    readPlaylistPairs,
     readPlaylistById,
     renamePlaylist,
     deletePlaylist,
