@@ -1,6 +1,15 @@
 import { Box } from "@mui/material";
 
-export default function SongCard({ index, song }: { index: number, song: { title: string, artist: string, year: number, songPlays: number, ytId: string, ownerEmail: string } }) {
+
+export default function PlaylistCard({ index, list }:{ 
+    index: number, 
+    list: { 
+        name: string,
+        ownerEmail: string,
+        songs: [{ type: string}],
+        uniqueListeners: [{ type: string}]
+    }}){
+
     return (
         <>
         <Box
@@ -12,18 +21,15 @@ export default function SongCard({ index, song }: { index: number, song: { title
                 marginBottom: '10px',
                 border: '1px solid black',
                 padding: '5px',
-                backgroundColor: 'beige',
             }}
             key={index}
             id={'song-' + index + '-card'}
         >
             {index + 1}.
-            <a
-                id={'song-' + index + '-link'}
-                className="song-link"
-                href={"https://www.youtube.com/watch?v=" + song.ytId}>
-                {song.title} ({song.year}) by {song.artist}
-            </a>
+            
+            <div>
+                {list.name} by {list.ownerEmail} | Songs: {list.songs.length} | Unique Listeners: {list.uniqueListeners.length}
+            </div>
             
         </Box>
         </>

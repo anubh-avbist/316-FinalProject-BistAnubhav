@@ -3,6 +3,7 @@ import AuthContext from '../auth'
 import { Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import logo from '../assets/images/logo.png';
+import AudiotrackIcon from '@mui/icons-material/Audiotrack';
 
 
 export default function HomeWrapper() {
@@ -25,13 +26,12 @@ export default function HomeWrapper() {
     return (
         <>
             <h1> Welcome to the home page!</h1>
-            <img src={logo} alt="Music Logo" width="300" height="300"/> 
-            
+            <AudiotrackIcon sx={{ fontSize: "20vw" }} />            
             <br />
-            <div style={{ display: 'flex', gap: '18px', alignItems: 'center' }}>
-                <Button variant = "outlined" onClick = {onContinue}> Continue As Guest </Button>
-                <Button variant = "outlined" onClick={onLogin}> Login </Button>
-                <Button variant = "outlined" onClick={onRegister}> Register </Button>
+            <div style={{ display: 'flex', gap: '18px', alignItems: 'center', justifyContent: 'center' }}>
+                <Button variant="outlined" onClick={onContinue}> Continue As Guest </Button>
+                <Button variant="outlined" onClick={onLogin}> Login </Button>
+                <Button variant="outlined" onClick={onRegister}> Register </Button>
             </div>
         </>
     )

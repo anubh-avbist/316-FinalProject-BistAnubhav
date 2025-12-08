@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import AuthContext from '../auth'
 
 
@@ -25,9 +25,9 @@ const altSettings = ['Edit Account', 'Logout'];
 export default function Navbar() {
 
     const {getLoggedIn} = useContext(AuthContext);
-    console.log("HomeWrapper auth.loggedIn: " + getLoggedIn());
     const navigate = useNavigate();
 
+    const [isLoggedIn, setIsLoggedIn] = React.useState(getLoggedIn());
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -149,12 +149,18 @@ export default function Navbar() {
                 onClose={handleCloseUserMenu}
             >
                 {
-                settings.map((setting) => (
-
+                !isLoggedIn ?
+                (altSettings.map((setting) => (
                     <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                        <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
+                    <Typography textAlign="center">{setting}</Typography>
                     </MenuItem>
-                    ))
+                )))
+                :
+                (settings.map((setting) => (
+                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">{setting}</Typography>
+                    </MenuItem>
+                )))
                 }
             </Menu>
             </Box>
