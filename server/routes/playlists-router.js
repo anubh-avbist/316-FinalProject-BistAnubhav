@@ -20,5 +20,6 @@ router.post('/rename_list/:id', PlaylistController.renamePlaylist)
 router.put('/playlist/removeSong', PlaylistController.removeSongFromPlaylist)
 router.put('/playlist/moveSong', PlaylistController.moveSongInPlaylist)
 router.put('/playlist/duplicateSong', PlaylistController.duplicateSongInPlaylist)
+router.put('/playlist/playSongAtIndex', PlaylistController.playSongAtIndex)
 
 module.exports = router

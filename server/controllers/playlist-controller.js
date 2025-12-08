@@ -260,6 +260,44 @@ duplicateSongInPlaylist = async (req, res) => {
     });
 }
 
+playSongAtIndex = async (req, res) => {
+    const { index, playlistId, userId } = req.body;
+    const playlist = await Playlist.findOne({ _id: playlistId }, (err, playlist) => {
+        return playlist;
+    }).catch(err => console.log(err));
+
+    if(!playlist){
+        return res.status(404).json({success: false, message: "Playlist not found!"});
+    }
+
+    // Add unique listeners!!!
+    if(!playlist.uniqueListeners.includes(userId)){
+        playlist.uniqueListeners.push(userId);
+    }
+
+    await playlist.save().catch(err => {
+        console.log("ERROR: " + err);
+        return res.status(400).json({success: false, message: "Saving error!"});
+    });
+
+    // Increment song plays
+    const song = await Song.findOne({ _id: playlist.songs[index] }, (err, song) => {
+        return song;
+    }).catch(err => console.log(err));
+
+    if(!song){
+        return res.status(404).json({success: false, message: "Song not found!"});
+    }
+
+    song.songPlays += 1;
+    await song.save().catch(err => {
+        console.log("ERROR: " + err);
+        return res.status(400).json({success: false, message: "Saving error!"});
+    });
+
+    return res.status(200).json({success: true, message: "Song played!", song: song});
+}
+
 module.exports = {
     createPlaylist,
     readAllPlaylists,
@@ -269,5 +307,6 @@ module.exports = {
     getLists,
     removeSongFromPlaylist,
     moveSongInPlaylist,
-    duplicateSongInPlaylist
+    duplicateSongInPlaylist,
+    playSongAtIndex
 }
