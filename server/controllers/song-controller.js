@@ -1,3 +1,5 @@
+const Playlist = require('../models/playlist-model')
+const User = require('../models/user-model')
 const Song = require('../models/song-model')
 /*
     This is our back-end API. It provides all the data services
@@ -105,10 +107,31 @@ deleteSong = async (req, res) => {
     });
 }  
 
+addSongToPlaylist = async (req, res) => {
+    const { songId, playlistId } = req.body;
+
+    const playlist = await Playlist.findOne({ _id: playlistId }, (err, playlist) => {
+        return playlist;
+    }).catch(err => console.log(err));
+
+    if(!playlist){
+        return res.status(404).json({success: false, message: "Playlist not found!"});
+    }
+
+    playlist.songs.push(songId);
+    playlist.save().then(() => {
+        return res.status(200).json({success: true, message: "Song added to playlist!", playlist: playlist});
+    }).catch(err => {
+        console.log("ERROR: " + err);
+        return res.status(400).json({success: false, message: "Saving error!"});
+    });
+}
+
 module.exports = {
     createSong,
     getSongById,
     getSongs,
     updateSong,
-    deleteSong
+    deleteSong,
+    addSongToPlaylist
 }
