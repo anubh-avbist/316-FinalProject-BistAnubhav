@@ -3,10 +3,10 @@ const User = require('../models/user-model')
 const bcrypt = require('bcryptjs')
 
 getLoggedIn = async (req, res) => {
+    console.log("getLoggedIn");
     try {
-        console.log(req.cookies);
+        console.log('getLoggedIn req.cookies: ' + req.cookies);
         let userId = await auth.verifyUser(req);
-        console.log("LOGGING IN!!!");
         console.log("userId: " + userId);
         if (!userId) {
             return res.status(200).json({

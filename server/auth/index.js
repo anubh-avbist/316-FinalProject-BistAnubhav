@@ -4,7 +4,7 @@ function authManager() {
     verify = async (req, res, next) => {
         console.log("req: " + JSON.stringify(req.cookies));
         // console.log("next: " + next);
-        console.log("Who called verify?");
+        console.log("Who called verify??");
         try {
             const token = req.cookies.token;
             if (!token) {
@@ -32,7 +32,6 @@ function authManager() {
 
     verifyUser = (req) => {
         try {
-            console.log("NO TOKEN?!?" + JSON.stringify(req.cookies));
             const token = req.cookies.token;
             if (!token) {
                 return null;

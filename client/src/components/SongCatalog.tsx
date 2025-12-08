@@ -30,6 +30,10 @@ export default function SongCatalog() {
 
     }
 
+    const addSong = () => {
+        console.log("AHAHAH");
+    }
+
 
     return (
         <>
@@ -44,10 +48,13 @@ export default function SongCatalog() {
                     </Box>
                 </div>
                 <div id = "songs-list">
-                    {songs.map((song, index) => (
-                        <SongCard index={index} song={song} />
-                    ))
-                    }
+                    <div id="overflow-container" style={{ maxHeight: '30vh', overflowY: 'auto', paddingRight: '10px', flexGrow: 1, border: '1px solid white', padding: '10px' }}>
+                        {songs.map((song, index) => (
+                            <SongCard index={index} song={song} />
+                        ))
+                        }
+                    </div>
+                    <Button id="add-song" variant="contained" sx={{ marginTop: '10px' }} onClick={addSong}> + New Song </Button>
                 </div>
             </div>
         </>

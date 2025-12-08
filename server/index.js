@@ -10,12 +10,14 @@
 require('dotenv').config();
 const express = require('express')
 const cors = require('cors')
+const cookieParser = require('cookie-parser')
 
 // CREATE OUR SERVER
 const app = express()
 app.use(express.urlencoded({ extended: true }))
-app.use(cors({ origin: 'http://localhost:5173', credentials: true })); // ADD THE CLIENT URL TO OUR CORS POLICY
+app.use(cors({ preflightContinue: true, origin: 'http://localhost:5173', credentials: true })); // ADD THE CLIENT URL TO OUR CORS POLICY
 app.use(express.json())
+app.use(cookieParser());
 
 // SETUP OUR OWN ROUTERS AS MIDDLEWARE
 const playlistRouter = require('./routes/playlists-router')

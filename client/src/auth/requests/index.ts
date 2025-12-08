@@ -19,7 +19,10 @@
 
 export async function getLoggedIn() {
     const url = "http://localhost:4000/auth/loggedIn/";
-    const response = await fetch(url);
+    const response = await fetch(url, {
+        mode: 'cors',
+        credentials: 'include'
+    });
 
     if (!response.ok) {
         let error = await response.json();
