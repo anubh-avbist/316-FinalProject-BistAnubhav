@@ -1,5 +1,6 @@
 const Playlist = require('../models/playlist-model')
 const User = require('../models/user-model')
+const Song = require('../models/song-model')
 
 /*
     This is our back-end API. It provides all the data services
@@ -138,16 +139,53 @@ deletePlaylist = async (req, res) => {
 }  
 
 getLists = async (req, res) => {
-    const body = req.body;
-    const startString = body.start_string;
+    const rawQuery = req.body;
+    const { name, username, songTitle, songArtist, songYear } = rawQuery;
+    let query = {};
     
-    await Playlist.find({ name: {$regex: `^${startString}`} }, (err, lists) => {
+    if (name) {
+        query.name = name;
+    }
+
+
+    if (username) {
+        const users = await User.find({ username: username }).exec();
+        if (users.length === 0) {
+            return res.status(400).json({success: false, message: "No user found with the given username!"});
+        }
+        query.ownerEmail = { $in: users.map(user => user.email) };
+    }
+
+    if (songTitle || songArtist || songYear) {
+        query.songs = { $elemMatch: {} };
+        if (songTitle) {
+            const listsWithSongs = await Song.find({ title: songTitle }, '_id').exec();
+            if (listsWithSongs.length === 0) {
+                return res.status(400).json({success: false, message: "No playlists found with the given song title!"});
+            }
+            query.songs.$elemMatch.$in = listsWithSongs.map(list => list._id);
+        }
+        if (songArtist) {
+            const listsWithSongs = await Song.find({ artist: songArtist }, '_id').exec();
+            if (listsWithSongs.length === 0) {
+                return res.status(400).json({success: false, message: "No playlists found with the given song artist!"});
+            }
+            query.songs.$elemMatch.$in = listsWithSongs.map(list => list._id);
+        }
+        if (songYear) {
+            const listsWithSongs = await Song.find({ year: songYear }, '_id').exec();
+            if (listsWithSongs.length === 0) {
+                return res.status(400).json({success: false, message: "No playlists found with the given song year!"});
+            }
+            query.songs.$elemMatch.$in = listsWithSongs.map(list => list._id);
+        }
+    }
+    
+
+    await Playlist.find(query, (err, lists) => {
+        
         if (err) {
             return res.status(400).json({ success: false, error: err })
-        }
-
-        if(lists.length == 0){
-            return res.status(400).json({ success: false, playlists: lists, message: "No list found!"})
         }
 
         return res.status(200).json({success: true, message: "Sucessfully found " + lists.length + " playlists!", playlists: lists});
