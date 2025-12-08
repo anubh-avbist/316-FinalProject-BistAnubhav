@@ -50,10 +50,18 @@ export default function Navbar() {
         navigate('/');
     }
 
+    const handlePlaylistsClick = () => {
+        navigate('/playlists');
+    }
+
+    const handleSongCatalogClick = () => {
+        navigate('/songs');
+    }
+
     return (
     <AppBar position="static">
         <Container maxWidth="xl">
-        <Toolbar disableGutters sx = {{gap: '2vw'}}>
+        <Toolbar disableGutters sx = {{gap: '10vw'}}>
             <HomeIcon sx={{ '&:hover': { cursor: 'pointer' }, display: { xs: 'none', md: 'flex'}, mr: 1 }} onClick={handleHomeClick} />
             <Typography
             noWrap
@@ -109,7 +117,7 @@ export default function Navbar() {
                 {pages.map((page) => (
                     <Button
                     key={page}
-                    onClick={handleCloseNavMenu}
+                    onClick={page === 'Playlists' ? handlePlaylistsClick : handleSongCatalogClick}
                     sx={{ my: 2, color: 'white', display: 'block' }}
                     >
                     {page}

@@ -1,0 +1,55 @@
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import { useState } from "react";
+import SongCard from "./SongCard.tsx";
+import { getSongs } from "../requests/SongRequests.ts";
+
+export default function SongCatalog() {
+
+    const [songs, setSongs] = useState([]);
+
+    const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+        
+        const query = {
+            title: formData.get('song-title') ? formData.get('song-title') as string : undefined,
+            artist: formData.get('song-artist') ? formData.get('song-artist') as string : undefined,
+            releaseYear: formData.get('song-year') ? Number(formData.get('song-year')) : undefined
+        };
+        
+        getSongs(query).then(async (response) => {
+            let songsList = await response.json();
+
+            console.log(`Query: ${JSON.stringify(query)} found songs: ${JSON.stringify(songsList.songs)}`);
+            setSongs(songsList.songs);
+        }).catch((error) => {
+            console.log(error);
+        });
+
+    }
+
+
+    return (
+        <>
+            <h1> Song Catalog Page </h1>
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px' }}>
+                <div id = "song-query" style={{borderRight: '1px solid white', padding: '1vw'}}>
+                    <Box component = "form" sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }} onSubmit={onSubmit}>
+                        <TextField name="song-title" label="Song Title" variant="outlined" sx={{ input: { color: 'white' }, label: { color: 'white' } }} />
+                        <TextField name="song-artist" label="Artist" variant="outlined" sx={{ input: { color: 'white' }, label: { color: 'white' } }} />
+                        <TextField type="number" name="song-year" label="Release Year" variant="outlined" sx={{ input: { color: 'white' }, label: { color: 'white' } }} />
+                        <Button type = "submit" variant="outlined"> Search Songs </Button>
+                    </Box>
+                </div>
+                <div id = "songs-list">
+                    {songs.map((song, index) => (
+                        <SongCard index={index} song={song} />
+                    ))
+                    }
+                </div>
+            </div>
+        </>
+    )
+}
