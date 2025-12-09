@@ -68,7 +68,7 @@ export async function logoutUser() {
     return response;   
 }
 
-export async function registerUser(username: string, email: string, password: string, passwordVerify: string) {
+export async function registerUser(username: string, email: string, password: string, passwordVerify: string, avatar: string) {
     const url = "http://localhost:4000/auth/register/";
 
     const response = await fetch(url, {
@@ -82,7 +82,8 @@ export async function registerUser(username: string, email: string, password: st
             "username" : username,
             "email": email,
             "password": password,
-            "passwordVerify": passwordVerify
+            "passwordVerify": passwordVerify,
+            "avatar": avatar
 
         })
     });

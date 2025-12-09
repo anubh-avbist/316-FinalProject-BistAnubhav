@@ -89,10 +89,11 @@ function AuthContextProvider(props: {children: React.ReactNode}) {
 
     const registerUser = async function(username: string, email: string, password: string, passwordVerify: string, avatar: string) {
         try{   
-            const response = await authRequestSender.registerUser(username, email, password, passwordVerify);  
+            const response = await authRequestSender.registerUser(username, email, password, passwordVerify, avatar);  
             if (response.status === 200) {
                 const result = await response.json(); 
                 console.log("Registered Sucessfully");
+                navigate("/");
                 authReducer({
                     type: AuthActionType.REGISTER_USER,
                     payload: {
