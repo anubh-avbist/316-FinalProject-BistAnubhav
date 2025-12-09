@@ -1,7 +1,12 @@
 import { Box, Button } from "@mui/material";
+import { useContext } from "react";
+import AuthContext from "../auth";
 
 export default function SongCard({ index, song, editSong }: { index: number, song: { title: string, artist: string, year: number, songPlays: number, ytId: string, ownerEmail: string }, editSong: (index: number) => void }) {
        
+    const { auth } = useContext(AuthContext)
+    const user = auth.user? auth.user : {username: null, email: null, avatar: null};
+
     return (
         <>
         <Box
@@ -30,7 +35,7 @@ export default function SongCard({ index, song, editSong }: { index: number, son
                 <p style={{ color: 'black' }} >
                     Listens: {song.songPlays} | Owner: {song.ownerEmail}
                 </p>
-                <Button variant="outlined" onClick={() => editSong(index)}>Edit</Button>
+                {auth.loggedIn? (auth.user?.email? (auth.user.email===song.ownerEmail? <Button variant="contained" onClick={() => editSong(index)}>Edit</Button> : <></>) : <></>) : <></>}
             </div>
             
         </Box>

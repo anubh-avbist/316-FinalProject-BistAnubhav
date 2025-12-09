@@ -1,15 +1,17 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import SongCard from "./SongCard.tsx";
 import { getSongs } from "../requests/SongRequests.ts";
 import MUIEditSongModal from "./MUIEditSongModal.tsx";
+import AuthContext from "../auth/index.tsx";
 
 export default function SongCatalog() {
 
     const [songs, setSongs] = useState([]);
     const [visible, setVisible] = useState(false);
+    const {auth} = useContext(AuthContext);
 
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -34,6 +36,7 @@ export default function SongCatalog() {
 
     const addSong = () => {
         console.log("AHAHAH");
+        console.log(auth.user? auth.user : {username: null, email: null, avatar: null});
     }
 
     const editSong = (index: number) => {
@@ -65,7 +68,8 @@ export default function SongCatalog() {
                         ))
                         }
                     </div>
-                    <Button id="add-song" variant="contained" sx={{ marginTop: '10px' }} onClick={addSong}> + New Song </Button>
+                    {auth.loggedIn?<Button id="add-song" variant="contained" sx={{ marginTop: '10px' }} onClick={addSong}> + New Song </Button> : <></>}
+                    
                 </div>
                 {visible?< MUIEditSongModal closeModal = {closeModal} /> : <></>}
             </div>
