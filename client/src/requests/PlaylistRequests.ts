@@ -1,4 +1,4 @@
-export async function getLists(query: { username?: string ; ownerEmail?: string ; title?: string ; artist?: string; releaseYear?: number }) {
+export async function getLists(query: { username?: string ; ownerEmail?: string ; title?: string ; artist?: string; year?: number }) {
     const url = "http://localhost:4000/api/get_lists";
     
     const response = await fetch(url, {
@@ -13,7 +13,7 @@ export async function getLists(query: { username?: string ; ownerEmail?: string 
             ownerEmail: query.ownerEmail,
             title: query.title,
             artist: query.artist,
-            releaseYear: query.releaseYear
+            year: query.year
         }),
     });
 

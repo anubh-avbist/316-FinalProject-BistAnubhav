@@ -12,6 +12,7 @@ export default function SongCatalog() {
     const [songs, setSongs] = useState([]);
     const [visible, setVisible] = useState(false);
     const {auth} = useContext(AuthContext);
+    const [currentSong, setCurrentSong] = useState<{ title: string, artist: string, year: number, ytId: string } | undefined>(undefined);
 
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -20,7 +21,7 @@ export default function SongCatalog() {
         const query = {
             title: formData.get('song-title') ? formData.get('song-title') as string : undefined,
             artist: formData.get('song-artist') ? formData.get('song-artist') as string : undefined,
-            releaseYear: formData.get('song-year') ? Number(formData.get('song-year')) : undefined
+            year: formData.get('song-year') ? Number(formData.get('song-year')) : undefined
         };
         
         getSongs(query).then(async (response) => {
@@ -42,6 +43,7 @@ export default function SongCatalog() {
     const editSong = (index: number) => {
         console.log(`Edit song at index: ${index}`);
         setVisible(true);
+        setCurrentSong(songs.find((_, i) => i === index));
 
     }
 
@@ -71,7 +73,7 @@ export default function SongCatalog() {
                     {auth.loggedIn?<Button id="add-song" variant="contained" sx={{ marginTop: '10px' }} onClick={addSong}> + New Song </Button> : <></>}
                     
                 </div>
-                {visible?< MUIEditSongModal closeModal = {closeModal} /> : <></>}
+                {visible?< MUIEditSongModal closeModal = {closeModal} song={currentSong} /> : <></>}
             </div>
         </>
     )
