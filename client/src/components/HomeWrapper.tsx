@@ -2,7 +2,6 @@ import { useContext } from 'react'
 import AuthContext from '../auth'
 import { Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import logo from '../assets/images/logo.png';
 import AudiotrackIcon from '@mui/icons-material/Audiotrack';
 
 

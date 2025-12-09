@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import authRequestSender from './requests'
 
 interface Auth {
-     user: string | null;
+        user: {username: string, avatar: string, email: string} | null;
         loggedIn: boolean;
         errorMessage: string | null;
 }

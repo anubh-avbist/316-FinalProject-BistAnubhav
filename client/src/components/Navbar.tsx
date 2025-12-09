@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import AuthContext from '../auth'
 
 
@@ -19,17 +19,20 @@ import HomeIcon from '@mui/icons-material/Home';
 import { useNavigate } from 'react-router-dom';
 
 const pages = ['Playlists', 'Song Catalog'];
-const settings = ['Login', 'CreateAccount'];
-const altSettings = ['Edit Account', 'Logout'];
+const guestSettings = ['Login', 'CreateAccount'];
+const userSettings = ['Edit Account', 'Logout'];
 
 export default function Navbar() {
 
-    const {getLoggedIn} = useContext(AuthContext);
+    const { auth, logoutUser } = useContext(AuthContext);
+    const settings = auth.loggedIn ? userSettings : guestSettings;
+    const loggedIn = auth.loggedIn;
     const navigate = useNavigate();
 
-    const [isLoggedIn, setIsLoggedIn] = React.useState(getLoggedIn());
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+    const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+    const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+    
+
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -58,6 +61,16 @@ export default function Navbar() {
         navigate('/songs');
     }
 
+    const handleLogout = () => {
+        console.log("LOGGING OUT");
+        logoutUser();
+    }
+
+    const handleLogin = () => {
+        navigate('/login');
+    }
+
+    
     return (
     <AppBar position="static">
         <Container maxWidth="xl">
@@ -129,7 +142,7 @@ export default function Navbar() {
 
             <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar />
+                    {loggedIn ?<Avatar>P</Avatar> : <Avatar />}
                 </IconButton>
             </Tooltip>
             <Menu
@@ -149,18 +162,13 @@ export default function Navbar() {
                 onClose={handleCloseUserMenu}
             >
                 {
-                !isLoggedIn ?
-                (altSettings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
+                    settings.map((setting) => (
+                    <MenuItem key={setting} onClick={
+                        setting === 'Logout' ? handleLogout : (setting === 'Login' ? handleLogin : handleCloseUserMenu)
+                    }>
+                        <Typography textAlign="center">{setting}</Typography>
                     </MenuItem>
-                )))
-                :
-                (settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
-                    </MenuItem>
-                )))
+                    ))
                 }
             </Menu>
             </Box>
