@@ -1,0 +1,465 @@
+{
+	"info": {
+		"_postman_id": "57ae9164-3cc9-46b1-af53-d7cd2ee271d5",
+		"name": "Playlister",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48917360",
+		"_collection_link": "https://anubhav-bist-874649.postman.co/workspace/Anubhav-Bist's-Workspace~a0a6d1b1-ea62-4d37-85ab-116eb000a011/collection/48917360-57ae9164-3cc9-46b1-af53-d7cd2ee271d5?action=share&source=collection_link&creator=48917360"
+	},
+	"item": [
+		{
+			"name": "PlaylistRequests",
+			"item": [
+				{
+					"name": "Create New List",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Boy List\",\r\n    \"ownerEmail\": \"boy\",\r\n    \"uniqueListeners\": [\r\n        \"6935fb8fe27a3a1d97573e8b\",\r\n        \"693633b045502f58d2e6bf84\"\r\n    ],\r\n    \"songs\": [\r\n        \"6935cd99d50fe2c63423db38\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/playlist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Playlist By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/playlist/693634b045143a5a10aa23f0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist",
+								"693634b045143a5a10aa23f0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Playlists",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"john doe\",\n    \"songTitle\": \"The song of all time!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/get_lists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"get_lists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Playlist By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/playlist/69349a2f2ce0f308ee32ae20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist",
+								"69349a2f2ce0f308ee32ae20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Song By Index",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"index\": 5,\n    \"playlistId\": \"69363a9ce5cc4d61755e3dc6\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/playlist/removeSong",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist",
+								"removeSong"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Duplicate Song",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"index\": 2,\n    \"playlistId\": \"693634b045143a5a10aa23f0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/playlist/duplicateSong",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist",
+								"duplicateSong"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Move Songs by Index!!",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oldIndex\": 0,\n    \"newIndex\": 1,\n    \"playlistId\": \"693634b045143a5a10aa23f0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/playlist/moveSong",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist",
+								"moveSong"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Play Song At Index",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"index\": 0,\n    \"playlistId\": \"693634b045143a5a10aa23f0\",\n    \"userId\": \"6935fb8fe27a3a1d97573e8b\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/playlist/playSongAtIndex",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"playlist",
+								"playSongAtIndex"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SongRequests",
+			"item": [
+				{
+					"name": "Create Song (Jane Remover)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"New Song!\",\n    \"artist\":\"Underscores\",\n    \"year\": 2024, \n    \"songPlays\": 2, \n    \"ytId\": \"wGDdsxgwquc\",\n    \"ownerEmail\": \"carkalicious\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/song",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"song"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Song By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/song/6935d1c62bfde8cc0f64f6dc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"song",
+								"6935d1c62bfde8cc0f64f6dc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Songs By Query",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n    \"artist\": \"Jane Remover\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/songs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"songs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Song",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"TURN UP OR CRY!!\",\n    \"artist\": \"Jane Remover2\",\n    \"year\": 1337\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/song/6935cd99d50fe2c63423db38",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"song",
+								"6935cd99d50fe2c63423db38"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Song",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/song/6935cd9bd50fe2c63423db3a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"song",
+								"6935cd9bd50fe2c63423db3a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Song To Playlist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"songId\": \"693633fa45502f58d2e6bf88\",\n    \"playlistId\": \"69363a9ce5cc4d61755e3dc6\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/song/add_to_playlist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"song",
+								"add_to_playlist"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AuthRequests",
+			"item": [
+				{
+					"name": "Register John Doe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"john doe\", \n    \"email\": \"boy\", \n    \"password\": \"awesome123\", \n    \"passwordVerify\": \"awesome123\", \n    \"avatar\": \"A picture of a really awesome dog\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User By ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"parker broski\", \n    \"email\": \"parker@fordings.com\", \n    \"password\": \"password2123\", \n    \"passwordVerify\": \"password2123\", \n    \"avatar\": \"A picture of a cat\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/auth/editAccount/6935dac53135ced73025374f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"auth",
+								"editAccount",
+								"6935dac53135ced73025374f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
