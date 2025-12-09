@@ -4,10 +4,12 @@ import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import SongCard from "./SongCard.tsx";
 import { getSongs } from "../requests/SongRequests.ts";
+import MUIEditSongModal from "./MUIEditSongModal.tsx";
 
 export default function SongCatalog() {
 
     const [songs, setSongs] = useState([]);
+    const [visible, setVisible] = useState(false);
 
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -34,6 +36,15 @@ export default function SongCatalog() {
         console.log("AHAHAH");
     }
 
+    const editSong = (index: number) => {
+        console.log(`Edit song at index: ${index}`);
+        setVisible(true);
+
+    }
+
+    const closeModal = () => {
+        setVisible(false);
+    }
 
     return (
         <>
@@ -50,12 +61,13 @@ export default function SongCatalog() {
                 <div id = "songs-list">
                     <div id="overflow-container" style={{ maxHeight: '30vh', overflowY: 'auto', paddingRight: '10px', flexGrow: 1, border: '1px solid white', padding: '10px' }}>
                         {songs.map((song, index) => (
-                            <SongCard index={index} song={song} />
+                            <SongCard index={index} song={song} editSong={editSong} />
                         ))
                         }
                     </div>
                     <Button id="add-song" variant="contained" sx={{ marginTop: '10px' }} onClick={addSong}> + New Song </Button>
                 </div>
+                {visible?< MUIEditSongModal closeModal = {closeModal} /> : <></>}
             </div>
         </>
     )
